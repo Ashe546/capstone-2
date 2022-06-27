@@ -10,25 +10,34 @@ import display from './display';
     const response = await fetch(request); 
     const movies = await response.json();
     
-    console.log(movies[2].show);
+    console.log(movies[2].show.id);
     movies.forEach(movie => {
         display(movie.show.name ,movie.show.image.medium , movie.show.id )
+      
     });
     
   }
   getMovies();
 
+const commentButton = document.querySelectorAll('.comment');
+
+    
+commentButton.forEach(button => {
+    button.addEventListener('click' , (e) => {
+        e.preventDefault
+        console.log('hey')
+})
+}) 
 
 
 //   async function getComment() {
-//     const requestURL = url;
+//     const requestURL = commentUrl;
 //     const request = new Request(requestURL);
   
 //     const response = await fetch(request);
-//     const scores = await response.json();
-//     const { result } = scores;
-//     document.querySelector('.list').innerHTML = '';
-//     result.forEach((score) => {
-//       display(score.user, score.score);
-//     });
+//     const comments = await response.json();
+//     console.log(comments);
+   
 //   }
+
+//   getComment();
