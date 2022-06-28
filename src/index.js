@@ -1,4 +1,6 @@
 import './css/style.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
 const movie = 'comedy';
 const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
@@ -60,3 +62,5 @@ export const display = async () => {
 };
 
 display();
+
+

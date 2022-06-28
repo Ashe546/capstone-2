@@ -1,7 +1,21 @@
+
 .popup {
   display: grid;
   background-color: aquamarine;
   justify-content: center;
   border: 1px solid;
   margin-top: 1%;
+  }
+  
+.custom-nav {
+  justify-content: end;
+}
+
+.nav-item {
+  margin-right: 30px;
+}
+
+.nav-item:hover {
+  background-color: aqua;
+
 }
