@@ -7,16 +7,12 @@ const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capst
 const movie = 'comedy';
 const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
 
-
-
 const displayMovies = document.querySelector('#display-movies');
 export async function getMovies() {
   const response = await fetch(url);
   const result = await response.json();
   return result;
 }
-
-
 
 export async function getComments(id) {
   const response = await fetch(`${commentUrl}?item_id=${id}`);
