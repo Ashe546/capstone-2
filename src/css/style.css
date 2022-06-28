@@ -20,12 +20,12 @@ body {
   height: 100%;
   overflow: hidden;
   top: 0;
-  bottom: 0px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
 }
 
 .movie-item {
-  display: grid
+  display: grid;
 }
 
 .custom-nav {

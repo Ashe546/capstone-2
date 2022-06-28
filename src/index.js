@@ -7,6 +7,8 @@ const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capst
 const movie = 'comedy';
 const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
 
+
+
 const displayMovies = document.querySelector('#display-movies');
 export async function getMovies() {
   const response = await fetch(url);
@@ -19,11 +21,9 @@ export async function getMovies() {
 export async function getComments(id) {
   const response = await fetch(`${commentUrl}?item_id=${id}`);
   const result = await response.json();
-  console.log(result)
+  console.log(result);
   return result;
 }
-
-
 
 export const popupMovieDetail = async (id) => {
   const movies = await getMovies();
@@ -32,7 +32,7 @@ export const popupMovieDetail = async (id) => {
   detailPopup.className = 'popup';
   movies.forEach((movie) => {
     if (id === movie.show.id) {
-      const movieItem = document.createElement('div')
+      const movieItem = document.createElement('div');
       movieItem.className = 'movie-item';
       const movieName = document.createElement('lable');
       movieName.innerHTML += `${movie.show.name}`;
@@ -50,14 +50,14 @@ export const popupMovieDetail = async (id) => {
       commentHeader.innerHTML = 'Comments';
       const commentList = document.createElement('ul');
       document.body.append(detailPopup);
-      if(comments.length > 0){
-      comments.forEach(comment => {
-        
-        const singleComment = document.createElement('li');
-        singleComment.innerHTML = `${comment.creation_date} ${comment.username} : ${comment.comment}`;
-        commentList.append(singleComment);
-      })}
-      detailPopup.append(movieItem ,commentHeader , commentList  );
+      if (comments.length > 0) {
+        comments.forEach((comment) => {
+          const singleComment = document.createElement('li');
+          singleComment.innerHTML = `${comment.creation_date} ${comment.username} : ${comment.comment}`;
+          commentList.append(singleComment);
+        });
+      }
+      detailPopup.append(movieItem, commentHeader, commentList);
 
       closeButton.addEventListener('click', () => {
         document.body.removeChild(detailPopup);
@@ -91,4 +91,3 @@ export const display = async () => {
 };
 
 display();
-
