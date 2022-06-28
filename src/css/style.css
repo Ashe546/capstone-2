@@ -1,3 +1,19 @@
+body {
+  padding: 1%;
+}
+
+#display-movies {
+  border-bottom: 1px solid;
+}
+
+.popup {
+  display: grid;
+  background-color: aquamarine;
+  justify-content: center;
+  border: 1px solid;
+  margin-top: 1%;
+}
+
 .custom-nav {
   justify-content: end;
 }

@@ -14,7 +14,7 @@
     "lint:style-fix": "npx stylelint \"**/*.{css,scss}\" --fix"
   },
   "jest": {
-  "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,7 @@
     "webpack-dev-server": "^4.9.2"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0-beta1"
   }
 }
