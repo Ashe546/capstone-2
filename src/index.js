@@ -21,6 +21,41 @@ export async function getComments(id) {
   return result;
 }
 
+const commentForm = document.createElement('form');
+commentForm.classList.add('comment-form');
+const commentTitle = document.createElement('h2');
+commentTitle.classList.add('comment-item');
+commentTitle.innerHTML = 'Add a comment';
+const NameInput = document.createElement('input');
+NameInput.classList.add('comment-item');
+NameInput.placeholder = 'Your name';
+const CommentInput = document.createElement('textarea');
+CommentInput.classList.add('comment-item');
+CommentInput.placeholder = 'Your comments';
+const addCommentButton = document.createElement('button');
+addCommentButton.classList.add('comment-item');
+addCommentButton.innerHTML = 'Comment';
+
+export const addComment = async (id)=> {
+  const result = fetch(commentUrl, {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: id,
+      username: NameInput.value.trim(),
+      comment: CommentInput.value.trim(),
+    }),
+    headers: {
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  })
+
+  return (await result).json;
+  NameInput.value = '';
+  CommentInput = '';
+}
+
+
+
 export const popupMovieDetail = async (id) => {
   const movies = await getMovies();
   const comments = await getComments(id);
@@ -41,7 +76,7 @@ export const popupMovieDetail = async (id) => {
       moviePremiered.innerHTML += `Premiered : ${movie.show.premiered}`;
       const movieImage = document.createElement('img');
       movieImage.src = movie.show.image.medium;
-      movieItem.append(movieName, movieImage, movieStatus, moviePremiered, closeButton);
+      
       const commentHeader = document.createElement('h2');
       commentHeader.innerHTML = 'Comments';
       const commentList = document.createElement('ul');
@@ -53,12 +88,22 @@ export const popupMovieDetail = async (id) => {
           commentList.append(singleComment);
         });
       }
-      detailPopup.append(movieItem, commentHeader, commentList);
 
+      commentForm.append(commentTitle , NameInput , CommentInput , addCommentButton )
+      movieItem.append(movieName, movieImage, movieStatus, moviePremiered, closeButton , commentForm);
+      detailPopup.append(movieItem, commentHeader, commentList);
+      
       closeButton.addEventListener('click', () => {
         document.body.removeChild(detailPopup);
         document.body.style.overflow = 'auto';
       });
+
+      addCommentButton.addEventListener('click' , (e) => {  
+        // e.preventDefault();
+        addComment(movie.show.id);
+        // commentForm.reset();
+      });
+
     }
   });
 };
