@@ -1,11 +1,9 @@
 body {
-<<<<<<< HEAD
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-=======
   padding: 1%;
 }
 
@@ -19,7 +17,6 @@ body {
   justify-content: center;
   border: 1px solid;
   margin-top: 1%;
->>>>>>> development
 }
 
 .custom-nav {
@@ -33,7 +30,6 @@ body {
 .nav-item:hover {
   background-color: aqua;
 }
-
 
 /* footer */
 .footer {
@@ -72,5 +68,5 @@ body {
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
 }
