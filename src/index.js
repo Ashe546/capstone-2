@@ -1,58 +1,67 @@
+import './css/style.css'
 const movie = 'comedy';
 const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
-const id = 'zKBC4nNh50AWVbWHEjaM';
-const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi//apps/${id}/comments`;
-// import display from './display';
 
-  async function getMovies() {
-    const requestURL = url;
-    const request = new Request(requestURL);
-    const response = await fetch(request); 
-    const movies = await response.json();
-    
-    console.log(movies[2].show.id);
-    movies.forEach(movie => {
-        display(movie.show.name ,movie.show.image.medium , movie.show.id )
-      
-    });
-    
+const displayMovies = document.querySelector('#display-movies');
+ export async function getMovies() {
+    const response = await fetch(new Request(url)); 
+    return  await response.json();
   }
-  getMovies();
 
- export const display = (name, img , id) => {
-  const displayMovies = document.querySelector('#display-movies');
+
+ export const popupMovieDetail = async (id)=> {
+  const movies = await getMovies();
+  const detailPopup = document.createElement('div');
+  detailPopup.className = 'popup';
+  movies.forEach(movie => {
+    if(id === movie.show.id){
+    const movieName = document.createElement('lable');
+    movieName.innerHTML += `${movie.show.name}`
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.innerHTML = 'close'
+    const movieStatus = document.createElement('lable');
+    movieStatus.innerHTML += `Status : ${movie.show.status}`
+    const moviePremiered = document.createElement('lable');
+    moviePremiered.innerHTML += `Premiered : ${movie.show.premiered}`
+    const movieImage = document.createElement('img');
+    movieImage.src = movie.show.image.medium;
+    detailPopup.append( movieName , movieImage , movieStatus , moviePremiered , closeButton);
+    document.body.append(detailPopup);
+
+  
+   closeButton.addEventListener('click' , () => {
+    document.body.removeChild(detailPopup);
+   })
+
+    }
+  })
+ }
+
+ export const display = async () => {
+  const movies = await getMovies();
+  movies.forEach(movie => {
   const movieList = document.createElement('div');
   movieList.className = 'movie-list';
   displayMovies.append(movieList);
   const movieName = document.createElement('lable');
-  movieName.innerHTML += `${name}`
+  movieName.innerHTML += `${movie.show.name}`
   const movieImage = document.createElement('img');
-  movieImage.src = `${img}`;
+  movieImage.src = movie.show.image.medium;
   const commentButton = document.createElement('button');
   commentButton.type = 'button';
   commentButton.className = 'comment';
   commentButton.innerHTML += 'comment';
   movieList.append(movieName, movieImage , commentButton);
-
-     commentButton.addEventListener('click' , ()=> {
-      console.log('clicked')
-    })
-
+  
+  commentButton.addEventListener('click' , (e)=> {
+    popupMovieDetail(movie.show.id)
+  })
+  });
   };
 
-
-   
-
-
-
-//   async function getComment() {
-//     const requestURL = commentUrl;
-//     const request = new Request(requestURL);
+  display();
   
-//     const response = await fetch(request);
-//     const comments = await response.json();
-//     console.log(comments);
-   
-//   }
 
-//   getComment();
+
+   

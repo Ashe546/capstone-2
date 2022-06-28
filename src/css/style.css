@@ -1,0 +1,7 @@
+.popup {
+    display: grid;
+    background-color: aquamarine;
+    justify-content: center;
+    border: 1px solid;
+    margin-top: 1%;
+}
