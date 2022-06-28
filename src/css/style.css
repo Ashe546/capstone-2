@@ -1,9 +1,25 @@
 body {
+<<<<<<< HEAD
   min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+=======
+  padding: 1%;
+}
+
+#display-movies {
+  border-bottom: 1px solid;
+}
+
+.popup {
+  display: grid;
+  background-color: aquamarine;
+  justify-content: center;
+  border: 1px solid;
+  margin-top: 1%;
+>>>>>>> development
 }
 
 .custom-nav {
