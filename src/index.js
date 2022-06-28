@@ -2,7 +2,7 @@ const movie = 'comedy';
 const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
 const id = 'zKBC4nNh50AWVbWHEjaM';
 const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi//apps/${id}/comments`;
-import display from './display';
+// import display from './display';
 
   async function getMovies() {
     const requestURL = url;
@@ -19,15 +19,30 @@ import display from './display';
   }
   getMovies();
 
-const commentButton = document.querySelectorAll('.comment');
+ export const display = (name, img , id) => {
+  const displayMovies = document.querySelector('#display-movies');
+  const movieList = document.createElement('div');
+  movieList.className = 'movie-list';
+  displayMovies.append(movieList);
+  const movieName = document.createElement('lable');
+  movieName.innerHTML += `${name}`
+  const movieImage = document.createElement('img');
+  movieImage.src = `${img}`;
+  const commentButton = document.createElement('button');
+  commentButton.type = 'button';
+  commentButton.className = 'comment';
+  commentButton.innerHTML += 'comment';
+  movieList.append(movieName, movieImage , commentButton);
 
-    
-commentButton.forEach(button => {
-    button.addEventListener('click' , (e) => {
-        e.preventDefault
-        console.log('hey')
-})
-}) 
+     commentButton.addEventListener('click' , ()=> {
+      console.log('clicked')
+    })
+
+  };
+
+
+   
+
 
 
 //   async function getComment() {
