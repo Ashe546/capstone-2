@@ -2,28 +2,19 @@ import './css/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
-const appId = 'Dk9UnpgPWAMDZ19Gse0r';
-const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
-const movie = 'comedy';
-const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
+import renderFooter from './modules/footer.js';
+import getMovies from './modules/movie_list.js';
+import renderReservation from './modules/reservation.js';
+
+const request = 'comedy';
+// const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
+
+renderFooter();
 
 const displayMovies = document.querySelector('#display-movies');
-export async function getMovies() {
-  const response = await fetch(url);
-  const result = await response.json();
-  return result;
-}
 
-export async function getComments(id) {
-  const response = await fetch(`${commentUrl}?item_id=${id}`);
-  const result = await response.json();
-  console.log(result);
-  return result;
-}
-
-export const popupMovieDetail = async (id) => {
-  const movies = await getMovies();
-  const comments = await getComments(id);
+const popupMovieDetail = async (id) => {
+  const movies = await getMovies(request);
   const detailPopup = document.createElement('div');
   detailPopup.className = 'popup';
   movies.forEach((movie) => {
@@ -63,8 +54,8 @@ export const popupMovieDetail = async (id) => {
   });
 };
 
-export const display = async () => {
-  const movies = await getMovies();
+const display = async () => {
+  const movies = await getMovies(request);
   movies.forEach((movie) => {
     const movieList = document.createElement('div');
     movieList.className = 'movie-list';
@@ -77,11 +68,21 @@ export const display = async () => {
     commentButton.type = 'button';
     commentButton.className = 'comment';
     commentButton.innerHTML += 'comment';
-    movieList.append(movieName, movieImage, commentButton);
+
+    const reservationButton = document.createElement('button');
+    reservationButton.className = 'btn';
+    reservationButton.innerHTML = 'reservation';
+
+    movieList.append(movieName, movieImage, commentButton, reservationButton);
 
     commentButton.addEventListener('click', () => {
       popupMovieDetail(movie.show.id);
       document.body.style.overflow = 'hidden';
+    });
+
+    reservationButton.addEventListener('click', () => {
+      renderReservation(movie.show.id);
+      // console.log(movie.show.id);
     });
   });
 };
