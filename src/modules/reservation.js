@@ -1,9 +1,10 @@
-const content = document.querySelector('body');
 import getMovies from './movie_list.js';
-import close from '../img/close.png'
+import close from '../img/close.png';
+
+const content = document.querySelector('body');
 
 // Render Reservation Popup
-let reservation = "";
+let reservation = '';
 const renderReservation = async (id) => {
   const movie = await getMovies(id);
   const popup = document.createElement('div');
@@ -26,9 +27,7 @@ const renderReservation = async (id) => {
   const closeButton = document.getElementById('close');
   closeButton.addEventListener('click', () => {
     closeButton.parentElement.remove();
-  })
+  });
 };
 
-
-
-export { renderReservation };
+export default renderReservation;

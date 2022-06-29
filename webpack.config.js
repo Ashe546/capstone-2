@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  devtool: "eval-cheap-source-map",
+  devtool: 'eval-cheap-source-map',
   mode: 'development',
   entry: {
     index: './src/index.js',

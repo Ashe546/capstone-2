@@ -4,13 +4,12 @@ import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
 import renderFooter from './modules/footer.js';
 import getMovies from './modules/movie_list.js';
-import { renderReservation } from './modules/reservation.js';
+import renderReservation from './modules/reservation.js';
 
 const request = 'comedy';
 // const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
 
 renderFooter();
-console.log(getMovies(request));
 
 const displayMovies = document.querySelector('#display-movies');
 
@@ -40,8 +39,6 @@ const popupMovieDetail = async (id) => {
     }
   });
 };
-
-const mapShows = [];
 
 const display = async () => {
   const movies = await getMovies(request);
