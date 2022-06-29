@@ -69,7 +69,7 @@ const popupMovieDetail = async (id) => {
       const commentList = document.createElement('ul');
       document.body.append(detailPopup);
       const commnetNumber = document.createElement('span');
-      let commentCounter = itemCount(comments);
+      const commentCounter = itemCount(comments);
       if (comments.length > 0) {
         comments.forEach((comment) => {
           commnetNumber.innerHTML = `(${commentCounter})`;
