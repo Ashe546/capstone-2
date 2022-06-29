@@ -1,4 +1,5 @@
 import getMovies from './movie_list';
+import itemCount from './counter';
 
 const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
@@ -67,9 +68,12 @@ const popupMovieDetail = async (id) => {
       commentHeader.innerHTML = 'Comments';
       const commentList = document.createElement('ul');
       document.body.append(detailPopup);
+      const commnetNumber = document.createElement('span');
+      let commentCounter = itemCount(comments);
       if (comments.length > 0) {
-        console.log(comments.length);
         comments.forEach((comment) => {
+          commnetNumber.innerHTML = `(${commentCounter})`;
+          commentHeader.append(commnetNumber);
           const singleComment = document.createElement('li');
           singleComment.innerHTML = `${comment.creation_date} ${comment.username} : ${comment.comment}`;
           commentList.append(singleComment);
