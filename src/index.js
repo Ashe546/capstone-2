@@ -1,87 +1,21 @@
 import './css/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
-import {component} from './Module/Home'
 
-const appId = 'Dk9UnpgPWAMDZ19Gse0r';
-const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
-const movie = 'comedy';
-const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
+import renderFooter from './modules/footer.js';
+import getMovies from './modules/movie_list.js';
+import renderReservation from './modules/reservation.js';
 
-console.log(url)
+import {component} from './modules/Home'
 
-// Render out the movies dynamicaly
-const Home = document.querySelector('#row')
+const request = 'comedy';
+// const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
+
+renderFooter();
+
 const displayMovies = document.querySelector('#display-movies');
 
-export async function getMovies() {
-  const response = await fetch(url);
-  const result = await response.json();
-  return result;
-}
-
-const homeDisplay = async () => {
-    const movies = await getMovies();
-    movies.forEach((movie) => {
-        Home.appendChild(component(movie.show.name, movie.show.image.medium));
-    })
-}
-
-homeDisplay();
+const Home = document.querySelector('#row')
 
 
-    commentButton.addEventListener('click', () => {
-      popupMovieDetail(movie.show.id);
-      document.body.style.overflow = 'hidden';
-    });
-
-export const popupMovieDetail = async (id) => {
-  const movies = await getMovies();
-  const detailPopup = document.createElement('div');
-  detailPopup.className = 'popup';
-  movies.forEach((movie) => {
-    if (id === movie.show.id) {
-      const movieName = document.createElement('lable');
-      movieName.innerHTML += `${movie.show.name}`;
-      const closeButton = document.createElement('button');
-      closeButton.type = 'button';
-      closeButton.innerHTML = 'close';
-      const movieStatus = document.createElement('lable');
-      movieStatus.innerHTML += `Status : ${movie.show.status}`;
-      const moviePremiered = document.createElement('lable');
-      moviePremiered.innerHTML += `Premiered : ${movie.show.premiered}`;
-      const movieImage = document.createElement('img');
-      movieImage.src = movie.show.image.medium;
-      detailPopup.append(movieName, movieImage, movieStatus, moviePremiered, closeButton);
-      document.body.append(detailPopup);
-
-      closeButton.addEventListener('click', () => {
-        document.body.removeChild(detailPopup);
-      });
-    }
-  });
-};
-
-export const display = async () => {
-  const movies = await getMovies();
-  movies.forEach((movie) => {
-    const movieList = document.createElement('div');
-    movieList.className = 'movie-list';
-    displayMovies.append(movieList);
-    const movieName = document.createElement('lable');
-    movieName.innerHTML += `${movie.show.name}`;
-    const movieImage = document.createElement('img');
-    movieImage.src = movie.show.image.medium;
-    const commentButton = document.createElement('button');
-    commentButton.type = 'button';
-    commentButton.className = 'comment';
-    commentButton.innerHTML += 'comment';
-    movieList.append(movieName, movieImage, commentButton);
-
-    commentButton.addEventListener('click', () => {
-      popupMovieDetail(movie.show.id);
-    });
-  });
-};
-
-display();
+component();
