@@ -6,7 +6,7 @@ import getMovies from './modules/getMovies';
 
 const displayMovies = document.querySelector('#display-movies');
 
-export const display = async () => {
+const display = async () => {
   const movies = await getMovies();
   movies.forEach((movie) => {
     const movieList = document.createElement('div');

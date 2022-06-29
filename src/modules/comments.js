@@ -1,4 +1,4 @@
-import getMovies from "./getMovies";
+import getMovies from './getMovies';
 
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
 const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
@@ -77,7 +77,7 @@ export const popupMovieDetail = async (id) => {
 
       commentForm.append(commentTitle, NameInput, CommentInput, addCommentButton);
       movieItem.append(movieName, movieImage, movieStatus);
-      movieItem.append( moviePremiered, closeButton, commentForm)
+      movieItem.append(moviePremiered, closeButton, commentForm);
       detailPopup.append(movieItem, commentHeader, commentList);
 
       closeButton.addEventListener('click', () => {
