@@ -31,3 +31,4 @@ const renderReservation = async (id) => {
 };
 
 export default renderReservation;
+

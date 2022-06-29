@@ -17,4 +17,5 @@ const getMovies = async (request) => {
   }
 };
 
+
 export default getMovies;

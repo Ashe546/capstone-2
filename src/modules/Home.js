@@ -6,23 +6,9 @@ import getMovies from './movie_list.js';
 
 const request = 'comedy';
 
-const appId = 'Dk9UnpgPWAMDZ19Gse0r';
-const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
-
-
-export async function getComments(id) {
-  const response = await fetch(`${commentUrl}?item_id=${id}`);
-  const result = await response.json();
-  console.log(result)
-  return result;
-}
-
-
-
 
 const popupMovieDetail = async (id) => {
   const movies = await getMovies(request);
-   const comments = await getComments(id);
   const detailPopup = document.createElement('div');
   detailPopup.className = 'popup';
   movies.forEach((movie) => {
