@@ -17,5 +17,4 @@ const displayMovies = document.querySelector('#display-movies');
 
 const Home = document.querySelector('#row')
 
-
 component();
