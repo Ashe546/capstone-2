@@ -86,7 +86,8 @@ export const popupMovieDetail = async (id) => {
         document.body.style.overflow = 'auto';
       });
 
-      addCommentButton.addEventListener('click', () => {
+      addCommentButton.addEventListener('click', (e) => {
+        e.preventDefault();
         addComment(movie.show.id);
         commentForm.reset();
       });
