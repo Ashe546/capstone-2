@@ -99,9 +99,9 @@ export const popupMovieDetail = async (id) => {
       });
 
       addCommentButton.addEventListener('click' , (e) => {  
-        // e.preventDefault();
+        e.preventDefault();
         addComment(movie.show.id);
-        // commentForm.reset();
+        commentForm.reset();
       });
 
     }
