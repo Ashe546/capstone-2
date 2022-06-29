@@ -42,7 +42,7 @@ export const addComment = async (id) => {
   return (await result).json;
 };
 
-export const popupMovieDetail = async (id) => {
+const popupMovieDetail = async (id) => {
   const movies = await getMovies(request);
   const comments = await getComments(id);
   const detailPopup = document.createElement('div');
@@ -94,3 +94,5 @@ export const popupMovieDetail = async (id) => {
     }
   });
 };
+
+export default popupMovieDetail;
