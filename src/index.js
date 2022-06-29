@@ -1,9 +1,16 @@
 import './css/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
+import {component} from './Module/Home'
 
 const movie = 'comedy';
 const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
+
+
+// Render out the movies dynamicaly
+const Home = document.querySelector('.home-page')
+Home.appendChild(component());
+
 
 const displayMovies = document.querySelector('#display-movies');
 export async function getMovies() {
