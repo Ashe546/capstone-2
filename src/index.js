@@ -3,14 +3,6 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
 import { popupMovieDetail } from './modules/comments';
-import getMovies from './modules/getMovies';
-
-const displayMovies = document.querySelector('#display-movies');
-
-const display = async () => {
-  const movies = await getMovies();
-
-
 import renderFooter from './modules/footer.js';
 import getMovies from './modules/movie_list.js';
 import renderReservation from './modules/reservation.js';
@@ -21,8 +13,6 @@ const request = 'comedy';
 renderFooter();
 
 const displayMovies = document.querySelector('#display-movies');
-
-
 
 const display = async () => {
   const movies = await getMovies(request);
