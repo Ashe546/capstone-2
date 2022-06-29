@@ -25,3 +25,43 @@ body {
 .nav-item:hover {
   background-color: aqua;
 }
+
+/* footer */
+.footer {
+  text-align: center;
+  color: #fff;
+  background-color: #3d3d3d;
+  padding: 40px 0;
+}
+
+.linkstyle {
+  text-decoration: none;
+  color: #fff;
+}
+
+.linkstyle:hover {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.5;
+}
+
+/* popup style */
+.popupModal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.popupContent {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
