@@ -12,4 +12,5 @@ const renderFooter = () => {
   content.insertAdjacentHTML('beforeend', footer);
 };
 
+
 export default renderFooter;

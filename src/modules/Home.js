@@ -75,12 +75,7 @@ const component =  async() => {
       popupMovieDetail(movie.show.id);
       document.body.style.overflow = 'hidden';
     });
-
-
-
           Home.appendChild(element)
-        })
-       
+        })   
   };
-
   export { component };
