@@ -9,7 +9,7 @@ const renderReservation = async (id) => {
   const movie = await getMovies(id);
   const popup = document.createElement('div');
   popup.className = 'popupModal';
-  reservation += `
+  reservation = `
     <div class="popupContent">
       <img id="close" src="${close}">
       <img src="${movie.image.medium}">
@@ -26,7 +26,7 @@ const renderReservation = async (id) => {
   content.appendChild(popup);
   const closeButton = document.getElementById('close');
   closeButton.addEventListener('click', () => {
-    closeButton.parentElement.remove();
+    closeButton.parentElement.parentElement.remove();
   });
 };
 
