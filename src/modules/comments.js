@@ -1,5 +1,6 @@
-import getMovies from './getMovies';
+import getMovies from './movie_list';
 
+const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
 const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
 
@@ -42,7 +43,7 @@ export const addComment = async (id) => {
 };
 
 export const popupMovieDetail = async (id) => {
-  const movies = await getMovies();
+  const movies = await getMovies(request);
   const comments = await getComments(id);
   const detailPopup = document.createElement('div');
   detailPopup.className = 'popup';
