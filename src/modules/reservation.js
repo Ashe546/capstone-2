@@ -45,7 +45,6 @@ const userReservationList = (id) => {
 
 const renderReservation = async (id) => {
   const movie = await getMovies(id);
-  // const reservationData = involvement.getCustomData(`/reservations?item_id=${id}`);
   const popup = document.createElement('div');
   popup.className = 'popupModal';
   reservation = `
@@ -102,16 +101,3 @@ const renderReservation = async (id) => {
 };
 
 export default renderReservation;
-
-// OR
-
-/*
-
-  involvement.postCustomData(object, `/reservations/`);
-  involvement.getCustomData(`/reservations?item_id=${id}`).then(res => {
-    if (Array.isArray(res)) {
-      console.log(res);  // or whatever else you want to do with the data
-    }
-  });
-
-  */
