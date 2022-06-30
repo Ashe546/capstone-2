@@ -8,8 +8,11 @@ const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
 const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
 
+
 // If there was no like adds a like
 export const likeCounter = async (id) => {
+  // const appId = id;
+  // const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
   const like = 0;
   const result = fetch(likeUrl, {
     method: 'POST',
@@ -21,8 +24,10 @@ export const likeCounter = async (id) => {
       'Content-Type': 'application/json; charset=UTF-8',
     },
   });
+  console.log(result.json)
   return (await result).json;
 };
+
 
 //get the likes
 export async function getLikes(id) {
@@ -31,21 +36,22 @@ export async function getLikes(id) {
   return result;
 }
 
-//update the likes
-export const likeClick = async (id) => {
-  const likes = await getLikes(id);
-  const test = likes.filter(like => like.item_id === id)
-  console.log(test[0].likes)
-  console.log(likes)
-  if(test.length === 0){
-    likeCounter(id)
-  }else{
-    test[0].likes === 2
-  }
-}
+// //update the likes
+// export const likeClick = async (id) => {
+//   const likes = await getLikes(id);
+//   const test = likes.filter(like => like.item_id === id)
+//   console.log(test[0].likes)
+//   console.log(likes)
+//   if(test.length === 0){
+//     likeCounter(id)
+//   }else{
+//     console.log('x')
+//   }
+// }
 
-const component = async () => {
+const component = async (id) => {
   const movies = await getMovies(request);
+  const likes = await getLikes(id);
   const Home = document.querySelector('#row');
   movies.forEach((movie) => {
     const element = document.createElement('div');
@@ -54,10 +60,21 @@ const component = async () => {
         <img style ="height: 100%; width: auto;" src=${movie.show.image.medium} alt="img"></div>
         <div class="row"><h1>${movie.show.name}</h1></div>`;
 
+        const test = likes.filter(like => like.item_id === movie.show.id)
+
+        const icon = document.createElement('div');
+
+        if(test.length === 0){
+          icon.innerHTML = `0`
+        }else{
+          icon.innerHTML = `${test[0].likes || 0}`
+        }
+       
+
 
         const iconBtn = document.createElement('button')
         iconBtn.type = 'button'; 
-        iconBtn.innerHTML += 'like';
+        iconBtn.innerHTML = 'like';
 
     const commentButton = document.createElement('button');
     commentButton.type = 'button';
@@ -66,7 +83,7 @@ const component = async () => {
     const reservationButton = document.createElement('button');
     reservationButton.className = 'btn';
     reservationButton.innerHTML = 'reservation';
-    element.append(iconBtn, commentButton, reservationButton);
+    element.append(icon ,iconBtn, commentButton, reservationButton);
 
     reservationButton.addEventListener('click', () => {
       renderReservation(movie.show.id);
@@ -74,7 +91,8 @@ const component = async () => {
     });
 
     iconBtn.addEventListener('click', () => {
-      likeClick(movie.show.id);
+      likeCounter(movie.show.id);
+      console.log('xx')
     });
 
 
