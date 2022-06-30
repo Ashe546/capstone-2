@@ -8,11 +8,10 @@ const content = document.querySelector('body');
 let reservation = '';
 
 const createObject = (id) => {
-  // Reservation section
   const name = document.getElementById('name');
   const start = document.getElementById('start');
   const end = document.getElementById('end');
-
+  // Reservation section
   const object = {
     item_id: `${id}`,
     username: name.value,
@@ -35,8 +34,12 @@ const userReservationList = (id) => {
       counter += 1;
       reservationInnerText += `<p>${user.date_start} - ${user.date_end} by ${user.username}</p>`;
     });
+    const scroll = document.createElement('div');
+    scroll.className = 'scroll';
+    scroll.innerHTML = reservationInnerText;
     const reservationDiv = document.querySelector('#reservationDiv');
-    reservationDiv.innerHTML = `Reservation(${counter})${reservationInnerText}`;
+    reservationDiv.innerHTML = `Reservation(${counter})`;
+    reservationDiv.appendChild(scroll);
   });
 };
 
@@ -74,12 +77,16 @@ const renderReservation = async (id) => {
 
   const reservationButton = document.getElementById('reservationButton');
   reservationButton.addEventListener('click', () => {
+    const name = document.getElementById('name');
+    const start = document.getElementById('start');
+    const end = document.getElementById('end');
     createObject(id);
+    name.value = '';
+    start.value = '';
+    end.value = '';
   });
   userReservationList(id);
 };
-
-
 
 export default renderReservation;
 
