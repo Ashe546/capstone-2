@@ -25,7 +25,7 @@ CommentInput.classList.add('comment-item');
 CommentInput.placeholder = 'Your comments';
 const addCommentButton = document.createElement('button');
 addCommentButton.innerHTML = 'Add Comment';
-addCommentButton.className = 'btn'
+addCommentButton.className = 'btn';
 
 export const addComment = async (id) => {
   const result = fetch(commentUrl, {
@@ -59,7 +59,7 @@ const popupMovieDetail = async (id) => {
       const closeButton = document.createElement('button');
       closeButton.type = 'button';
       closeButton.innerHTML = 'close';
-      closeButton.className = 'btn'
+      closeButton.className = 'btn';
       const movieStatus = document.createElement('lable');
       movieStatus.innerHTML += `Status : ${movie.show.status}`;
       const moviePremiered = document.createElement('lable');
@@ -67,13 +67,13 @@ const popupMovieDetail = async (id) => {
       const movieImage = document.createElement('img');
       movieImage.src = movie.show.image.medium;
       document.body.append(detailPopup);
-      const commentSection = document.createElement('div')
+      const commentSection = document.createElement('div');
       commentSection.className = 'comment-section';
       const commentHeader = document.createElement('h5');
       commentHeader.innerHTML = 'Comments';
       const commentList = document.createElement('ul');
       const commnetNumber = document.createElement('span');
-      let commentCounter = itemCount(comments);
+      const commentCounter = itemCount(comments);
       if (comments.length > 0) {
         comments.forEach((comment) => {
           commnetNumber.innerHTML = `(${commentCounter})`;
@@ -83,12 +83,12 @@ const popupMovieDetail = async (id) => {
           commentList.append(singleComment);
         });
       }
-       
-      commentForm.append( NameInput, CommentInput, addCommentButton);
-      commentSection.append(commentHeader, commentList ,commentTitle ,commentForm )
-      movieItem.append(movieName, movieImage, movieStatus , );
+
+      commentForm.append(NameInput, CommentInput, addCommentButton);
+      commentSection.append(commentHeader, commentList, commentTitle, commentForm);
+      movieItem.append(movieName, movieImage, movieStatus);
       movieItem.append(moviePremiered, closeButton);
-      popupContent.append(movieItem , commentSection)
+      popupContent.append(movieItem, commentSection);
       detailPopup.append(popupContent);
 
       closeButton.addEventListener('click', () => {
