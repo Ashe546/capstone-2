@@ -63,6 +63,8 @@ const component = async (id) => {
         const test = likes.filter(like => like.item_id === movie.show.id)
 
         const icon = document.createElement('div');
+        icon.className = 'icon';
+
 
         if(test.length === 0){
           icon.innerHTML = `0`
@@ -92,6 +94,7 @@ const component = async (id) => {
 
     iconBtn.addEventListener('click', () => {
       likeCounter(movie.show.id);
+      icon.innerHTML = `${test[0].likes + 1}`
       console.log('xx')
     });
 
