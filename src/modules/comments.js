@@ -1,5 +1,5 @@
-import getMovies from './movie_list';
-import itemCount from './counter';
+import getMovies from './movie_list.js';
+import itemCount from './counter.js';
 
 const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
