@@ -55,9 +55,9 @@ const component = async (id) => {
   const Home = document.querySelector('#row');
   movies.forEach((movie) => {
     const element = document.createElement('div');
-    element.className = ' home-col col-3';
-    element.innerHTML += `<div class="row" style="height: 50%; background-color:azure align-items: center; justify-content: center;">
-        <img style ="height: 100%; width: auto;" src=${movie.show.image.medium} alt="img"></div>
+    element.className = ' home-col col-2';
+    element.innerHTML += `
+        <img style ="height: 310px; width: auto;" src=${movie.show.image.medium} alt="img">
         <div class="row name-div"><h5 class = 'names'>${movie.show.name}</h5></div>`;
 
         const test = likes.filter(like => like.item_id === movie.show.id)
@@ -72,8 +72,6 @@ const component = async (id) => {
           icon.innerHTML = `${test[0].likes}`
         }
        
-
-
         const iconBtn = document.createElement('button')
         iconBtn.type = 'button'; 
         iconBtn.innerHTML = 'like';

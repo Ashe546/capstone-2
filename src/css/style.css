@@ -1,6 +1,6 @@
 body {
   padding: 1%;
-  background: linear-gradient(110deg, #01d8f9 60%, #15f900 60%);
+  background: linear-gradient(110deg, #032227 60%, #092b06 60%);
 }
 
 #display-movies {
@@ -41,28 +41,44 @@ body {
 }
 
 #home-page {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
+}
+
+#row {
+  margin-left: 160px;
 }
 
 .row .home-col {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  align-items: center;
+  height: fit-content;
   margin-top: 60px;
-  margin-bottom: -70px;
+  margin-right: 30px;
+  background-color: black;
+}
+
+.home-col:hover {
+  height: 110%;
+  border: solid 1px gray;
+  margin-top: 50px;
 }
 
 .names {
   display: flex;
   justify-content: center;
   padding-top: 10px;
+  color: #fff;
 }
 
 .icon {
-  display: flex;
-  justify-content: end;
-  margin-right: 20%;
+  color: #fff;
 }
+
+.comment {
+  width: fit-content;
+}
+
 
 
 /* footer */
