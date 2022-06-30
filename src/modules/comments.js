@@ -5,7 +5,7 @@ const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
 const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
 
-export async function getComments(id) {
+export  const getComments = async (id) => {
   const response = await fetch(`${commentUrl}?item_id=${id}`);
   const result = await response.json();
 
@@ -27,13 +27,13 @@ const addCommentButton = document.createElement('button');
 addCommentButton.innerHTML = 'Add Comment';
 addCommentButton.className = 'btn';
 
-export const addComment = async (id) => {
+export async function addComment(id) {
   const result = fetch(commentUrl, {
     method: 'POST',
     body: JSON.stringify({
       item_id: id,
-      username: NameInput.value.trim(),
-      comment: CommentInput.value.trim(),
+      username: NameInput.value,
+      comment: CommentInput.value,
     }),
     headers: {
       'Content-Type': 'application/json; charset=UTF-8',
