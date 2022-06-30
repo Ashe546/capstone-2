@@ -39,8 +39,7 @@ export const addComment = async (id) => {
       'Content-Type': 'application/json; charset=UTF-8',
     },
   });
-
-  return (await result).json;
+  return result.json;
 };
 
 const popupMovieDetail = async (id) => {
@@ -98,11 +97,11 @@ const popupMovieDetail = async (id) => {
 
       addCommentButton.addEventListener('click', (e) => {
         e.preventDefault();
-        addComment(id);
+        addComment(movie.show.id);
         const currentDay = new Date();
         const date = `${currentDay.getFullYear()}-0${currentDay.getMonth() + 1}-${currentDay.getDate()}`;
 
-        const commentCounter = itemCount(comments);
+        const commentCounter = itemCount(comments) + 1;
         commnetNumber.innerHTML = `(${commentCounter})`;
         commentHeader.append(commnetNumber);
         const singleComment = document.createElement('li');
