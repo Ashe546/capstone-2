@@ -80,7 +80,7 @@ const component = async (id) => {
 
     const commentButton = document.createElement('button');
     commentButton.type = 'button';
-    commentButton.className = 'comment';
+    commentButton.className = 'btn';
     commentButton.innerHTML += 'comment';
     const reservationButton = document.createElement('button');
     reservationButton.className = 'btn';
