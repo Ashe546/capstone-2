@@ -125,6 +125,21 @@ body {
   background-color: rgba(128, 128, 128, 0.271);
 }
 
+.reservation-wraper{
+  display: flex;
+  flex-direction: row;
+}
+
+
+/* reservation close btn*/
+.close-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-bottom: 20px;
+}
+
+
 /* footer */
 .footer {
   display: flex;

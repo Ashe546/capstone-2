@@ -1,5 +1,5 @@
 import getMovies from './movie_list.js';
-import close from '../img/close.png';
+import close from '../img/cancel1.png';
 import involvement from './involvement.js';
 
 const content = document.querySelector('body');
@@ -50,7 +50,9 @@ const renderReservation = async (id) => {
   popup.className = 'popupModal';
   reservation = `
     <div class="popupContent">
-      <img id="close" src="${close}">
+      <div class = 'close-icon'><img id="close" src="${close}"></div>
+      <div class = "reservation-wraper">
+      <div>
       <img src="${movie.image.medium}">
       <h3>${movie.name}</h3>
       <p>Language: ${movie.language}</p>
@@ -60,6 +62,9 @@ const renderReservation = async (id) => {
         <p>Days: ${movie.schedule.days}</p>
         <p>Time: ${movie.schedule.time}</p>
       </div>
+      </div>
+
+      <div>
       <div id="reservationDiv"></div>
       <div> Add a reservation
         <input id="name" type="text" name="name" value="" placeholder="Your name">
@@ -67,7 +72,10 @@ const renderReservation = async (id) => {
         <input id="end" type="date" name="date" value="" placeholder="End date">
         <button id="reservationButton" type="button" name="button"></button>
       </div>
+      </div>
+      </div>
   </div>`;
+
   popup.innerHTML = reservation;
   content.appendChild(popup);
   const closeButton = document.getElementById('close');
