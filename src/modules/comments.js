@@ -12,6 +12,8 @@ export async function getComments(id) {
   return result;
 }
 
+
+
 const commentForm = document.createElement('form');
 commentForm.classList.add('comment-form');
 const commentTitle = document.createElement('h5');
@@ -98,7 +100,19 @@ const popupMovieDetail = async (id) => {
 
       addCommentButton.addEventListener('click', (e) => {
         e.preventDefault();
-        addComment(movie.show.id);
+        addComment(id);
+        const today = new Date();
+        const date = `${today.getFullYear()}-0${today.getMonth() + 1}-${today.getDate()}`;
+
+        const commentCounter = itemCount(comments);
+        commnetNumber.innerHTML = `(${commentCounter})`;
+        commentHeader.append(commnetNumber);
+        const singleComment = document.createElement('li');
+        const commentUser = `${NameInput.value}`;
+        const commentContent = `${CommentInput.value}`;
+        singleComment.innerHTML = `${date} ${commentUser} : ${commentContent}`;
+        commentList.append(singleComment);
+
         commentForm.reset();
       });
     }
