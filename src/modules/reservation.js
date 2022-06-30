@@ -65,8 +65,6 @@ const renderReservation = async (id) => {
         <p>Time: ${movie.schedule.time}</p>
       </div>
   
-
-
       <div id="reservationDiv"></div>
       <div class = 'add-reservation-btn'> Add a reservation
         <input id="name" type="text" name="name" value="" placeholder="Your name">
