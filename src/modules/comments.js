@@ -5,12 +5,12 @@ const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
 const commentUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/comments`;
 
-export  const getComments = async (id) => {
+export const getComments = async (id) => {
   const response = await fetch(`${commentUrl}?item_id=${id}`);
   const result = await response.json();
 
   return result;
-}
+};
 
 const commentForm = document.createElement('form');
 commentForm.classList.add('comment-form');
@@ -40,7 +40,7 @@ export async function addComment(id) {
     },
   });
   return result.json;
-};
+}
 
 const popupMovieDetail = async (id) => {
   const movies = await getMovies(request);
