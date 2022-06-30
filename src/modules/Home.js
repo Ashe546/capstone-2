@@ -60,7 +60,7 @@ const component = async (id) => {
   const Home = document.querySelector('#row');
   movies.forEach((movie) => {
     const element = document.createElement('div');
-    element.className = ' home-col col-2';
+    element.className = 'home-col col-2';
     element.innerHTML += `
         <img style ="height: 310px; width: auto;" src=${movie.show.image.medium} alt="img">
         <div class="row name-div"><h5 class = 'names'>${movie.show.name}</h5></div>`;
@@ -94,6 +94,7 @@ const component = async (id) => {
 
     reservationButton.addEventListener('click', () => {
       renderReservation(movie.show.id);
+      Home.classList.add('blur');
     });
 
     iconBtn.addEventListener('click', () => {

@@ -76,6 +76,10 @@ body {
   margin-top: 50px;
 }
 
+.blur {
+  opacity: 0.1;
+}
+
 .names {
   display: flex;
   justify-content: center;
@@ -125,18 +129,26 @@ body {
   background-color: rgba(128, 128, 128, 0.271);
 }
 
-.reservation-wraper{
+.reservation-wraper {
   display: flex;
   flex-direction: row;
+  gap: 2rem;
 }
 
 
-/* reservation close btn*/
+/* reservation close btn */
 .close-icon {
   display: flex;
   flex-direction: row;
   justify-content: end;
   margin-bottom: 20px;
+}
+
+.add-reservation-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 
@@ -176,10 +188,10 @@ body {
 }
 
 .popupContent {
-  padding: 20px;
-  background-color: #fff;
+  padding: 30px 50px;
+  background-color: rgb(0, 0, 0);
+  color: #fff;
   border-radius: 10px;
-  overflow-y: scroll;
   margin: 5% 0;
   box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
 }

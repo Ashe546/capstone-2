@@ -1,5 +1,5 @@
 import getMovies from './movie_list.js';
-import close from '../img/cancel1.png';
+import close from '../img/cancel2.png';
 import involvement from './involvement.js';
 
 const content = document.querySelector('body');
@@ -58,15 +58,18 @@ const renderReservation = async (id) => {
       <p>Language: ${movie.language}</p>
       <p>Status: ${movie.status}</p>
       <p>Premiered : ${movie.premiered}</p>
+      </div>
+
+      <div>
       <div>Schedule:
         <p>Days: ${movie.schedule.days}</p>
         <p>Time: ${movie.schedule.time}</p>
       </div>
-      </div>
+  
 
-      <div>
+
       <div id="reservationDiv"></div>
-      <div> Add a reservation
+      <div class = 'add-reservation-btn'> Add a reservation
         <input id="name" type="text" name="name" value="" placeholder="Your name">
         <input id="start" type="date" name="date" value="" placeholder="Start date">
         <input id="end" type="date" name="date" value="" placeholder="End date">
@@ -78,9 +81,11 @@ const renderReservation = async (id) => {
 
   popup.innerHTML = reservation;
   content.appendChild(popup);
+  const Home = document.querySelector('#row');
   const closeButton = document.getElementById('close');
   closeButton.addEventListener('click', () => {
     document.body.removeChild(popup);
+    Home.classList.remove('blur');
   });
 
   const reservationButton = document.getElementById('reservationButton');
