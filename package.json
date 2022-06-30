@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "dev": "webpack --mode development",
     "start": "webpack serve --open",
     "lint:hint": "npx hint .",
@@ -56,6 +56,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0-beta1",
-    "sass": "^1.53.0"
+    "sass": "^1.53.0",
+    "jest": "^28.1.2"
   }
 }

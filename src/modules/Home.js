@@ -81,8 +81,13 @@ const component = async (id) => {
 
     const commentButton = document.createElement('button');
     commentButton.type = 'button';
+<<<<<<< HEAD
     commentButton.className = 'comment';
     commentButton.innerHTML += `<p>Comment<p>`;
+=======
+    commentButton.className = 'btn';
+    commentButton.innerHTML += 'comment';
+>>>>>>> fdbb11f7189c491e6a0ac34545c75e8154b86692
     const reservationButton = document.createElement('button');
     reservationButton.className = 'reservation';
     reservationButton.innerHTML = `<p>Reservation<p>`;
