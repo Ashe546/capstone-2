@@ -1,5 +1,5 @@
 // hompage
-
+/* eslint-disable */
 import renderReservation from './reservation.js';
 import getMovies from './movie_list.js';
 import popupMovieDetail from './comments.js';
@@ -106,6 +106,5 @@ const component = async (id) => {
     Home.appendChild(element);
   });
 };
-
 
 export default component;
