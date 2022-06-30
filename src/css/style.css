@@ -1,5 +1,6 @@
 body {
   padding: 1%;
+  background: linear-gradient(110deg, #01d8f9 60%, #15f900 60%);
 }
 
 #display-movies {
@@ -40,14 +41,27 @@ body {
 }
 
 #home-page {
-  margin-bottom: 50px;
-  margin-left: 12px;
+  margin-bottom: 10px;
 }
 
 .row .home-col {
+  display: flex;
+  flex-direction: column;
   height: 500px;
-  margin-right: 50px;
   margin-top: 60px;
+  margin-bottom: -70px;
+}
+
+.names {
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.icon {
+  display: flex;
+  justify-content: end;
+  margin-right: 20%;
 }
 
 
