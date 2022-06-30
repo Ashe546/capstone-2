@@ -3,6 +3,8 @@
 import renderReservation from './reservation.js';
 import getMovies from './movie_list.js';
 import popupMovieDetail from './comments.js';
+import heart from '../img/like1.png';
+import heart1 from '../img/like2.png';
 
 const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
@@ -73,16 +75,17 @@ const component = async (id) => {
         }
        
         const iconBtn = document.createElement('button')
-        iconBtn.type = 'button'; 
-        iconBtn.innerHTML = 'like';
+        iconBtn.type = 'button';
+        iconBtn.className = "icon-btn" 
+        iconBtn.innerHTML = `<img src="${heart}">`;
 
     const commentButton = document.createElement('button');
     commentButton.type = 'button';
     commentButton.className = 'comment';
-    commentButton.innerHTML += 'comment';
+    commentButton.innerHTML += `<p>Comment<p>`;
     const reservationButton = document.createElement('button');
-    reservationButton.className = 'btn';
-    reservationButton.innerHTML = 'reservation';
+    reservationButton.className = 'reservation';
+    reservationButton.innerHTML = `<p>Reservation<p>`;
     element.append(icon ,iconBtn, commentButton, reservationButton);
 
     reservationButton.addEventListener('click', () => {
@@ -92,8 +95,15 @@ const component = async (id) => {
 
     iconBtn.addEventListener('click', () => {
       likeCounter(movie.show.id);
-      icon.innerHTML = `${test[0].likes + 1}`
-      console.log('xx')
+      if(iconBtn.innerHTML === `<img src="${heart}">`){
+        iconBtn.innerHTML = `<img src="${heart1}">`
+        icon.innerHTML = `${test[0].likes + 1}`
+      }else{
+        iconBtn.innerHTML = `<img src="${heart}">`
+        icon.innerHTML = `${test[0].likes}`
+      }
+      
+
     });
 
 

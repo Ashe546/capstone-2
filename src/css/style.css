@@ -59,7 +59,6 @@ body {
 }
 
 .home-col:hover {
-  height: 110%;
   border: solid 1px gray;
   margin-top: 50px;
 }
@@ -67,7 +66,6 @@ body {
 .names {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
   color: #fff;
 }
 
@@ -75,14 +73,55 @@ body {
   color: #fff;
 }
 
-.comment {
-  width: fit-content;
+.icon-btn {
+  background-color: inherit;
 }
+
+
+.comment {
+  height: fit-content;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  margin-top: 10px;
+  border: none;
+  background-color: inherit
+}
+
+.comment p{
+  color: #fff; 
+}
+.comment:hover{
+  color: #fff;
+  background-color: rgba(128, 128, 128, 0.271);
+}
+
+.reservation {
+  height: fit-content;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+  border: none;
+  background-color: inherit
+}
+
+.reservation p {
+  color: #fff;
+}
+
+.reservation:hover {
+  color: #fff; 
+  background-color: rgba(128, 128, 128, 0.271);
+}
+
 
 
 
 /* footer */
 .footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
   text-align: center;
   color: #fff;
   background-color: #3d3d3d;
