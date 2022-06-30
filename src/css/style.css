@@ -34,6 +34,14 @@ body {
   display: grid;
 }
 
+.comment-section ul {
+  list-style: none;
+}
+
+.comment-section h5 {
+  text-align: center;
+}
+
 .custom-nav {
   justify-content: end;
 }

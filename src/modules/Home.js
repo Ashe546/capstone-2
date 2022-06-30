@@ -14,10 +14,10 @@ const component = async () => {
     element.className = 'col-3 home-col';
     element.innerHTML += `<div class="row" style="height: 50%; background-color:azure align-items: center; justify-content: center;">
         <img style ="height: 100%; width: auto;" src=${movie.show.image.medium} alt="img"></div>
-        <div class="row"><h1>${movie.show.name}<i>heart</i></h1></div>`;
+        <div class="row"><h3>${movie.show.name}<i>heart</i></h3></div>`;
     const commentButton = document.createElement('button');
     commentButton.type = 'button';
-    commentButton.className = 'comment';
+    commentButton.className = 'btn';
     commentButton.innerHTML += 'comment';
     const reservationButton = document.createElement('button');
     reservationButton.className = 'btn';

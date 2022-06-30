@@ -14,7 +14,7 @@ export async function getComments(id) {
 
 const commentForm = document.createElement('form');
 commentForm.classList.add('comment-form');
-const commentTitle = document.createElement('h4');
+const commentTitle = document.createElement('h5');
 commentTitle.classList.add('comment-item');
 commentTitle.innerHTML = 'Add a comment';
 const NameInput = document.createElement('input');
@@ -24,8 +24,8 @@ const CommentInput = document.createElement('textarea');
 CommentInput.classList.add('comment-item');
 CommentInput.placeholder = 'Your comments';
 const addCommentButton = document.createElement('button');
-addCommentButton.classList.add('comment-item');
-addCommentButton.innerHTML = 'Comment';
+addCommentButton.innerHTML = 'Add Comment';
+addCommentButton.className = 'btn'
 
 export const addComment = async (id) => {
   const result = fetch(commentUrl, {
@@ -59,6 +59,7 @@ const popupMovieDetail = async (id) => {
       const closeButton = document.createElement('button');
       closeButton.type = 'button';
       closeButton.innerHTML = 'close';
+      closeButton.className = 'btn'
       const movieStatus = document.createElement('lable');
       movieStatus.innerHTML += `Status : ${movie.show.status}`;
       const moviePremiered = document.createElement('lable');
@@ -68,7 +69,7 @@ const popupMovieDetail = async (id) => {
       document.body.append(detailPopup);
       const commentSection = document.createElement('div')
       commentSection.className = 'comment-section';
-      const commentHeader = document.createElement('h4');
+      const commentHeader = document.createElement('h5');
       commentHeader.innerHTML = 'Comments';
       const commentList = document.createElement('ul');
       const commnetNumber = document.createElement('span');
@@ -83,8 +84,8 @@ const popupMovieDetail = async (id) => {
         });
       }
        
-      commentForm.append(commentTitle, NameInput, CommentInput, addCommentButton);
-      commentSection.append(commentHeader, commentList ,commentForm )
+      commentForm.append( NameInput, CommentInput, addCommentButton);
+      commentSection.append(commentHeader, commentList ,commentTitle ,commentForm )
       movieItem.append(movieName, movieImage, movieStatus , );
       movieItem.append(moviePremiered, closeButton);
       popupContent.append(movieItem , commentSection)
