@@ -60,7 +60,7 @@ const component = async (id) => {
   const Home = document.querySelector('#row');
   movies.forEach((movie) => {
     const element = document.createElement('div');
-    element.className = ' home-col col-2';
+    element.className = 'home-col col-2';
     element.innerHTML += `
         <img style ="height: 310px; width: auto;" src=${movie.show.image.medium} alt="img">
         <div class="row name-div"><h5 class = 'names'>${movie.show.name}</h5></div>`;
@@ -87,13 +87,14 @@ const component = async (id) => {
     commentButton.className = 'comment';
     commentButton.innerHTML += `<p>Comment<p>`;
     const reservationButton = document.createElement('button');
+    reservationButton.type = 'button';
     reservationButton.className = 'reservation';
     reservationButton.innerHTML = `<p>Reservation<p>`;
     element.append(icon ,iconBtn, commentButton, reservationButton);
 
     reservationButton.addEventListener('click', () => {
       renderReservation(movie.show.id);
-      console.log(movie.show.id);
+      Home.classList.add('blur');
     });
 
     iconBtn.addEventListener('click', () => {
@@ -105,8 +106,6 @@ const component = async (id) => {
         iconBtn.innerHTML = `<img src="${heart}">`
         icon.innerHTML = `${test[0].likes}`
       }
-      
-
     });
 
 
