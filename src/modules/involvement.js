@@ -8,10 +8,10 @@ class Involvement {
   // why do you still have this method here when you already have app ID?
   async createNewApp() {
     const request = new Request(this.url, {
-    method: 'POST',
-  });
-  const response = await fetch(request);
-  return response.text();
+      method: 'POST',
+    });
+    const response = await fetch(request);
+    return response.text();
   }
 
   async postCustomData(object, actionUrl) {
@@ -25,7 +25,7 @@ class Involvement {
       body: JSON.stringify(object),
     });
     const response = await fetch(request);
-    return response
+    return response;
   }
 
   async getCustomData(actionUrl) {

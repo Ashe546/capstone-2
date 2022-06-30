@@ -1,16 +1,48 @@
 import getMovies from './movie_list.js';
 import close from '../img/close.png';
-import involvement from './involvement.js'
+import involvement from './involvement.js';
 
 const content = document.querySelector('body');
 
 // Render Reservation Popup
 let reservation = '';
 
-const renderReservation = async (id) => {
+const createObject = (id) => {
+  // Reservation section
+  const name = document.getElementById('name');
+  const start = document.getElementById('start');
+  const end = document.getElementById('end');
 
+  const object = {
+    item_id: `${id}`,
+    username: name.value,
+    date_start: start.value,
+    date_end: end.value,
+  };
+  // this block has other possibilities
+  involvement.postCustomData(object, '/reservations/').then((res) => {
+    if (res.ok) {
+      involvement.getCustomData(`/reservations?item_id=${id}`).then((res) => res);
+    }
+  });
+};
+
+const userReservationList = (id) => {
+  let reservationInnerText = '';
+  let counter = 0;
+  involvement.getCustomData(`/reservations?item_id=${id}`).then((res) => {
+    res.forEach((user) => {
+      counter += 1;
+      reservationInnerText += `<p>${user.date_start} - ${user.date_end} by ${user.username}</p>`;
+    });
+    const reservationDiv = document.querySelector('#reservationDiv');
+    reservationDiv.innerHTML = `Reservation(${counter})${reservationInnerText}`;
+  });
+};
+
+const renderReservation = async (id) => {
   const movie = await getMovies(id);
-  const reservationData = involvement.getCustomData(`/reservations?item_id=${id}`);
+  // const reservationData = involvement.getCustomData(`/reservations?item_id=${id}`);
   const popup = document.createElement('div');
   popup.className = 'popupModal';
   reservation = `
@@ -45,53 +77,15 @@ const renderReservation = async (id) => {
     createObject(id);
   });
   userReservationList(id);
-
 };
 
-const createObject = (id) => {
-  // Reservation section
-  const name = document.getElementById('name');
-  const start = document.getElementById('start');
-  const end = document.getElementById('end');
-
-  const object = {
-    item_id: `${id}`,
-    username: name.value,
-    date_start: start.value,
-    date_end: end.value
-  }
-console.log(object);
-  // this block has other possibilities
-  involvement.postCustomData(object, `/reservations/`).then(res => {
-    if (res.ok) {
-      involvement.getCustomData(`/reservations?item_id=${id}`).then(res => console.log(res));
-    }
-  });
-}
-
-console.log(involvement.createNewApp())
-
-  const userReservationList = (id) => {
-    let reservationInnerText = '';
-    let counter = 0;
-    involvement.getCustomData(`/reservations?item_id=${id}`).then(res => {
-      res.forEach((user) => {
-        counter++;
-        reservationInnerText += `<p>${user.date_start} - ${user.date_end} by ${user.username}</p>`;
-      });
-      const reservationDiv = document.querySelector('#reservationDiv');
-      reservationDiv.innerHTML = `Reservation(${counter})` + reservationInnerText;
-    });
-  }
 
 
 export default renderReservation;
 
+// OR
 
-
-  // OR
-
-  /*
+/*
 
   involvement.postCustomData(object, `/reservations/`);
   involvement.getCustomData(`/reservations?item_id=${id}`).then(res => {
