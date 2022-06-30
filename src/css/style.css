@@ -135,7 +135,6 @@ body {
   gap: 2rem;
 }
 
-
 /* reservation close btn */
 .close-icon {
   display: flex;
@@ -150,7 +149,6 @@ body {
   align-items: center;
   gap: 1rem;
 }
-
 
 /* footer */
 .footer {
