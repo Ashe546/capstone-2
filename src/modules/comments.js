@@ -12,8 +12,6 @@ export async function getComments(id) {
   return result;
 }
 
-
-
 const commentForm = document.createElement('form');
 commentForm.classList.add('comment-form');
 const commentTitle = document.createElement('h5');
@@ -101,8 +99,8 @@ const popupMovieDetail = async (id) => {
       addCommentButton.addEventListener('click', (e) => {
         e.preventDefault();
         addComment(id);
-        const today = new Date();
-        const date = `${today.getFullYear()}-0${today.getMonth() + 1}-${today.getDate()}`;
+        const currentDay = new Date();
+        const date = `${currentDay.getFullYear()}-0${currentDay.getMonth() + 1}-${currentDay.getDate()}`;
 
         const commentCounter = itemCount(comments);
         commnetNumber.innerHTML = `(${commentCounter})`;
