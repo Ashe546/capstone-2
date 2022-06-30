@@ -80,7 +80,7 @@ const renderReservation = async (id) => {
   content.appendChild(popup);
   const closeButton = document.getElementById('close');
   closeButton.addEventListener('click', () => {
-    closeButton.parentElement.parentElement.remove();
+    document.body.removeChild(popup);
   });
 
   const reservationButton = document.getElementById('reservationButton');

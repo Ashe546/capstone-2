@@ -87,13 +87,13 @@ const component = async (id) => {
     commentButton.className = 'comment';
     commentButton.innerHTML += `<p>Comment<p>`;
     const reservationButton = document.createElement('button');
+    reservationButton.type = 'button';
     reservationButton.className = 'reservation';
     reservationButton.innerHTML = `<p>Reservation<p>`;
     element.append(icon ,iconBtn, commentButton, reservationButton);
 
     reservationButton.addEventListener('click', () => {
       renderReservation(movie.show.id);
-      console.log(movie.show.id);
     });
 
     iconBtn.addEventListener('click', () => {
@@ -105,8 +105,6 @@ const component = async (id) => {
         iconBtn.innerHTML = `<img src="${heart}">`
         icon.innerHTML = `${test[0].likes}`
       }
-      
-
     });
 
 
