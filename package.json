@@ -14,11 +14,7 @@
     "lint:style-fix": "npx stylelint \"**/*.{css,scss}\" --fix"
   },
   "jest": {
-    "testEnvironment": "jsdom",
-    "automock": false,
-    "setupFiles": [
-      "./setupJest.js"
-    ]
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",

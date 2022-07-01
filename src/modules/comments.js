@@ -1,3 +1,4 @@
+/* eslint-disable */
 import getMovies from './movie_list';
 import itemCount from './counter';
 
