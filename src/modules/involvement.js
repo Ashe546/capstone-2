@@ -5,7 +5,6 @@ class Involvement {
     this.url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/';
   }
 
-  // why do you still have this method here when you already have app ID?
   async createNewApp() {
     const request = new Request(this.url, {
       method: 'POST',
@@ -18,7 +17,6 @@ class Involvement {
     const url = this.url + appId + actionUrl;
     const request = new Request(url, {
       method: 'POST',
-      // when you're posting json-like object, this header is required
       headers: {
         'Content-Type': 'application/json',
       },
@@ -49,4 +47,4 @@ class Involvement {
 
 const involvement = new Involvement();
 
-export default involvement;
+export { involvement, Involvement };

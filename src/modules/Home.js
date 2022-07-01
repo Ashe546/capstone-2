@@ -1,6 +1,6 @@
 // hompage
 /* eslint-disable */
-import renderReservation from './reservation.js';
+import { renderReservation } from './reservation.js';
 import getMovies from './movie_list.js';
 import popupMovieDetail from './comments.js';
 import heart from '../img/like1.png';
@@ -76,10 +76,10 @@ const component = async (id) => {
         }else{
           icon.innerHTML = `${test[0].likes}`
         }
-       
+
         const iconBtn = document.createElement('button')
         iconBtn.type = 'button';
-        iconBtn.className = "icon-btn" 
+        iconBtn.className = "icon-btn"
         iconBtn.innerHTML = `<img src="${heart}">`;
 
     const commentButton = document.createElement('button');
