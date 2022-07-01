@@ -1,5 +1,6 @@
 /* eslint-disable */
 import './css/style.css';
+import userReservationList from './reservationCounter.js'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.js';
 
@@ -13,6 +14,7 @@ import component from './modules/Home';
 // const url = `https://api.tvmaze.com/search/shows?q=${movie}`;
 
 renderFooter();
+userReservationList(1);
 
 // const displayMovies = document.querySelector('#display-movies');
 

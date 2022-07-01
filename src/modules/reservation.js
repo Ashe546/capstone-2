@@ -1,6 +1,6 @@
 import getMovies from './movie_list.js';
 import close from '../img/close.png';
-import involvement from './involvement.js';
+import { involvement } from './involvement.js';
 
 const content = document.querySelector('body');
 
@@ -18,7 +18,7 @@ const createObject = (id) => {
     date_start: start.value,
     date_end: end.value,
   };
-  // this block has other possibilities
+
   involvement.postCustomData(object, '/reservations/').then((res) => {
     if (res.ok) {
       involvement.getCustomData(`/reservations?item_id=${id}`).then((res) => res);
@@ -45,7 +45,6 @@ const userReservationList = (id) => {
 
 const renderReservation = async (id) => {
   const movie = await getMovies(id);
-  // const reservationData = involvement.getCustomData(`/reservations?item_id=${id}`);
   const popup = document.createElement('div');
   popup.className = 'popupModal';
   reservation = `
@@ -88,17 +87,4 @@ const renderReservation = async (id) => {
   userReservationList(id);
 };
 
-export default renderReservation;
-
-// OR
-
-/*
-
-  involvement.postCustomData(object, `/reservations/`);
-  involvement.getCustomData(`/reservations?item_id=${id}`).then(res => {
-    if (Array.isArray(res)) {
-      console.log(res);  // or whatever else you want to do with the data
-    }
-  });
-
-  */
+export { userReservationList, renderReservation };
