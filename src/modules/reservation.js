@@ -1,5 +1,5 @@
 import getMovies from './movie_list.js';
-import close from '../img/close.png';
+import close from '../img/close_white.png';
 import { involvement } from './involvement.js';
 
 const content = document.querySelector('body');
@@ -66,11 +66,11 @@ const renderReservation = async (id) => {
       </div>
 
       <div id="reservationDiv"></div>
-      <div class = 'add-reservation-btn'> Add a reservation
+      <div class = 'reservationForm'> Add a reservation
         <input id="name" type="text" name="name" value="" placeholder="Your name">
         <input id="start" type="date" name="date" value="" placeholder="Start date">
         <input id="end" type="date" name="date" value="" placeholder="End date">
-        <button id="reservationButton" type="button" name="button"></button>
+        <button id="reservationButton" class="btn" type="button" name="button">Reserve</button>
       </div>
       </div>
       </div>
