@@ -80,7 +80,9 @@ const renderReservation = async (id) => {
   content.appendChild(popup);
   const Home = document.querySelector('#row');
   const closeButton = document.getElementById('close');
+  content.style.overflow = 'hidden';
   closeButton.addEventListener('click', () => {
+    content.style.overflow = 'scroll';
     document.body.removeChild(popup);
     Home.classList.remove('blur');
   });
