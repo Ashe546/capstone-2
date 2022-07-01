@@ -16,13 +16,13 @@ export const getComments = async (id) => {
 const commentForm = document.createElement('form');
 commentForm.classList.add('comment-form');
 const commentTitle = document.createElement('h5');
-commentTitle.classList.add('comment-item');
+commentTitle.className = 'comment-item';
 commentTitle.innerHTML = 'Add a comment';
 const NameInput = document.createElement('input');
-NameInput.classList.add('comment-item');
+NameInput.className = 'comment-item form-control';
 NameInput.placeholder = 'Your name';
 const CommentInput = document.createElement('textarea');
-CommentInput.classList.add('comment-item');
+CommentInput.className = 'comment-item form-control';
 CommentInput.placeholder = 'Your comments';
 const addCommentButton = document.createElement('button');
 addCommentButton.innerHTML = 'Add Comment';
@@ -59,7 +59,7 @@ const popupMovieDetail = async (id) => {
       const closeButton = document.createElement('button');
       closeButton.type = 'button';
       closeButton.innerHTML = 'close';
-      closeButton.className = 'btn';
+      closeButton.className = 'close';
       const movieStatus = document.createElement('lable');
       movieStatus.innerHTML += `Status : ${movie.show.status}`;
       const moviePremiered = document.createElement('lable');

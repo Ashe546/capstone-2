@@ -67,8 +67,11 @@ const renderReservation = async (id) => {
 
       <div id="reservationDiv"></div>
       <div class = 'reservationForm'> Add a reservation
+        <label for="name">Name</label>
         <input id="name" type="text" name="name" value="" placeholder="Your name">
+        <label for="start">Start date</label>
         <input id="start" type="date" name="date" value="" placeholder="Start date">
+        <label for="end">End Date</label>
         <input id="end" type="date" name="date" value="" placeholder="End date">
         <button id="reservationButton" class="btn" type="button" name="button">Reserve</button>
       </div>

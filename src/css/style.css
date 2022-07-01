@@ -21,11 +21,12 @@ body {
 }
 
 .popup-content {
+  background-color: #000;
+  color: #fff;
   display: flex;
   width: 60%;
   justify-content: space-around;
   padding: 20px;
-  background-color: #fff;
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
 }
@@ -221,4 +222,30 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.comment-form button {
+  color: #fff;
+}
+
+.close {
+  color: #fff;
+  background-color: #000;
+  border: none;
+}
+
+.close:hover {
+  border: solid 1px #fff;
+}
+
+.movie {
+  color: #fff;
+  margin-top: 13px;
+  margin-left: 50px;
 }
