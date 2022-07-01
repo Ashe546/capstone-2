@@ -10,5 +10,4 @@ import component from './modules/Home';
 
 renderFooter();
 userReservationList(1);
-
 component();
