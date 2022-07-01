@@ -14,8 +14,6 @@ const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstone
 
 // If there was no like adds a like
 export const likeCounter = async (id) => {
-  // const appId = id;
-  // const likeUrl = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appId}/likes`;
   const like = 0;
   const result = fetch(likeUrl, {
     method: 'POST',
@@ -38,19 +36,6 @@ export async function getLikes(id) {
   const result = await response.json();
   return result;
 }
-
-// //update the likes
-// export const likeClick = async (id) => {
-//   const likes = await getLikes(id);
-//   const test = likes.filter(like => like.item_id === id)
-//   console.log(test[0].likes)
-//   console.log(likes)
-//   if(test.length === 0){
-//     likeCounter(id)
-//   }else{
-//     console.log('x')
-//   }
-// }
 
 const component = async (id) => {
   const movies = await getMovies(request);
