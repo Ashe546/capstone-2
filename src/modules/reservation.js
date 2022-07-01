@@ -1,6 +1,6 @@
 import getMovies from './movie_list.js';
-import close from '../img/cancel2.png';
-import involvement from './involvement.js';
+import close from '../img/close_white.png';
+import { involvement } from './involvement.js';
 
 const content = document.querySelector('body');
 
@@ -18,7 +18,7 @@ const createObject = (id) => {
     date_start: start.value,
     date_end: end.value,
   };
-  // this block has other possibilities
+
   involvement.postCustomData(object, '/reservations/').then((res) => {
     if (res.ok) {
       involvement.getCustomData(`/reservations?item_id=${id}`).then((res) => res);
@@ -64,13 +64,13 @@ const renderReservation = async (id) => {
         <p>Days: ${movie.schedule.days}</p>
         <p>Time: ${movie.schedule.time}</p>
       </div>
-  
+
       <div id="reservationDiv"></div>
-      <div class = 'add-reservation-btn'> Add a reservation
+      <div class = 'reservationForm'> Add a reservation
         <input id="name" type="text" name="name" value="" placeholder="Your name">
         <input id="start" type="date" name="date" value="" placeholder="Start date">
         <input id="end" type="date" name="date" value="" placeholder="End date">
-        <button id="reservationButton" type="button" name="button"></button>
+        <button id="reservationButton" class="btn" type="button" name="button">Reserve</button>
       </div>
       </div>
       </div>
@@ -80,7 +80,9 @@ const renderReservation = async (id) => {
   content.appendChild(popup);
   const Home = document.querySelector('#row');
   const closeButton = document.getElementById('close');
+  content.style.overflow = 'hidden';
   closeButton.addEventListener('click', () => {
+    content.style.overflow = 'scroll';
     document.body.removeChild(popup);
     Home.classList.remove('blur');
   });
@@ -98,4 +100,4 @@ const renderReservation = async (id) => {
   userReservationList(id);
 };
 
-export default renderReservation;
+export { userReservationList, renderReservation };
