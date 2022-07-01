@@ -1,0 +1,65 @@
+{
+  "name": "capstone-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "webpack --mode development",
+    "start": "webpack serve --open",
+    "lint:hint": "npx hint .",
+    "lint:es": "npx eslint .",
+    "lint:es-fix": "npx eslint . --fix",
+    "lint:style": "npx stylelint \"**/*.{css,scss}\"",
+    "lint:style-fix": "npx stylelint \"**/*.{css,scss}\" --fix"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashe546/capstone-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashe546/capstone-2/issues"
+  },
+  "homepage": "https://github.com/Ashe546/capstone-2#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@babel/plugin-transform-modules-commonjs": "^7.18.6",
+    "@babel/preset-env": "^7.18.6",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^28.1.1",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.26.0",
+    "file-loader": "^6.2.0",
+    "hint": "^7.0.1",
+    "html-webpack-plugin": "^5.5.0",
+    "image-webpack-loader": "^8.1.0",
+    "jest-environment-jsdom": "^28.1.1",
+    "jest-environment-jsdom-global": "^3.1.2",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-webpack": "^0.5.1",
+    "style-loader": "^3.3.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.9.2"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.2.0-beta1",
+    "global-fetch": "^0.2.2",
+    "sass": "^1.53.0",
+    "jest": "^28.1.2"
+  }
+}
