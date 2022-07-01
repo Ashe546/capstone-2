@@ -28,18 +28,6 @@ class Involvement {
   }
 }
 
-/*
-  async function f() {
-
-  let promise = new Promise((resolve, reject) => {
-    setTimeout(() => resolve("done!"), 1000)
-  });
-
-  let result = await promise; // wait until the promise resolves (*)
-
-  alert(result); // "done!"
-}
-*/
 const involvement = new Involvement();
 
 export default involvement;
