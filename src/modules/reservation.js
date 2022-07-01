@@ -1,11 +1,6 @@
 import getMovies from './movie_list.js';
-<<<<<<< HEAD
 import close from '../img/close.png';
 import { involvement } from './involvement.js';
-=======
-import close from '../img/cancel2.png';
-import involvement from './involvement.js';
->>>>>>> development
 
 const content = document.querySelector('body');
 
@@ -69,7 +64,7 @@ const renderReservation = async (id) => {
         <p>Days: ${movie.schedule.days}</p>
         <p>Time: ${movie.schedule.time}</p>
       </div>
-  
+
       <div id="reservationDiv"></div>
       <div class = 'add-reservation-btn'> Add a reservation
         <input id="name" type="text" name="name" value="" placeholder="Your name">
@@ -103,8 +98,4 @@ const renderReservation = async (id) => {
   userReservationList(id);
 };
 
-<<<<<<< HEAD
 export { userReservationList, renderReservation };
-=======
-export default renderReservation;
->>>>>>> development

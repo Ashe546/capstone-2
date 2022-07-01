@@ -76,20 +76,11 @@ const component = async (id) => {
         }else{
           icon.innerHTML = `${test[0].likes}`
         }
-<<<<<<< HEAD
-
-
 
         const iconBtn = document.createElement('button')
         iconBtn.type = 'button';
-        iconBtn.innerHTML = 'like';
-=======
-       
-        const iconBtn = document.createElement('button')
-        iconBtn.type = 'button';
-        iconBtn.className = "icon-btn" 
+        iconBtn.className = "icon-btn"
         iconBtn.innerHTML = `<img src="${heart}">`;
->>>>>>> development
 
     const commentButton = document.createElement('button');
     commentButton.type = 'button';
