@@ -3,6 +3,9 @@
 import { renderReservation } from './reservation.js';
 import getMovies from './movie_list.js';
 import popupMovieDetail from './comments.js';
+import heart from '../img/like1.png';
+import heart1 from '../img/like2.png';
+import movieCounter from './moviecounter.js';
 
 const request = 'comedy';
 const appId = 'Dk9UnpgPWAMDZ19Gse0r';
@@ -51,51 +54,67 @@ export async function getLikes(id) {
 
 const component = async (id) => {
   const movies = await getMovies(request);
+  const count = movieCounter(movies);
+  console.log(movies)
   const likes = await getLikes(id);
   const Home = document.querySelector('#row');
   movies.forEach((movie) => {
     const element = document.createElement('div');
-    element.className = 'col-3 home-col';
-    element.innerHTML += `<div class="row" style="height: 50%; background-color:azure align-items: center; justify-content: center;">
-        <img style ="height: 100%; width: auto;" src=${movie.show.image.medium} alt="img"></div>
-        <div class="row"><h1>${movie.show.name}</h1></div>`;
+    element.className = 'home-col col-2';
+    element.innerHTML += `
+        <img style ="height: 310px; width: auto;" src=${movie.show.image.medium} alt="img">
+        <div class="row name-div"><h5 class = 'names'>${movie.show.name}</h5></div>`;
 
         const test = likes.filter(like => like.item_id === movie.show.id)
 
-        const icon = document.createElement('div');
+        const icon = document.createElement('p');
         icon.className = 'icon';
 
 
         if(test.length === 0){
           icon.innerHTML = `0`
         }else{
-          icon.innerHTML = `${test[0].likes || 0}`
+          icon.innerHTML = `${test[0].likes}`
         }
+<<<<<<< HEAD
 
 
 
         const iconBtn = document.createElement('button')
         iconBtn.type = 'button';
         iconBtn.innerHTML = 'like';
+=======
+       
+        const iconBtn = document.createElement('button')
+        iconBtn.type = 'button';
+        iconBtn.className = "icon-btn" 
+        iconBtn.innerHTML = `<img src="${heart}">`;
+>>>>>>> development
 
     const commentButton = document.createElement('button');
     commentButton.type = 'button';
     commentButton.className = 'comment';
-    commentButton.innerHTML += 'comment';
+    commentButton.innerHTML += `<p>Comment<p>`;
     const reservationButton = document.createElement('button');
-    reservationButton.className = 'btn';
-    reservationButton.innerHTML = 'reservation';
+    reservationButton.type = 'button';
+    reservationButton.className = 'reservation';
+    reservationButton.innerHTML = `<p>Reservation<p>`;
     element.append(icon ,iconBtn, commentButton, reservationButton);
 
     reservationButton.addEventListener('click', () => {
       renderReservation(movie.show.id);
-      console.log(movie.show.id);
+      Home.classList.add('blur');
     });
 
     iconBtn.addEventListener('click', () => {
       likeCounter(movie.show.id);
-      icon.innerHTML = `${test[0].likes + 1}`
-      console.log('xx')
+      if(iconBtn.innerHTML === `<img src="${heart}">`){
+        iconBtn.innerHTML = `<img src="${heart1}">`
+        icon.innerHTML = `${test[0].likes + 1}`
+      }else{
+        iconBtn.innerHTML = `<img src="${heart}">`
+        icon.innerHTML = `${test[0].likes}`
+      }
     });
 
 

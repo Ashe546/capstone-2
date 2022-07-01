@@ -1,6 +1,11 @@
 import getMovies from './movie_list.js';
+<<<<<<< HEAD
 import close from '../img/close.png';
 import { involvement } from './involvement.js';
+=======
+import close from '../img/cancel2.png';
+import involvement from './involvement.js';
+>>>>>>> development
 
 const content = document.querySelector('body');
 
@@ -49,29 +54,40 @@ const renderReservation = async (id) => {
   popup.className = 'popupModal';
   reservation = `
     <div class="popupContent">
-      <img id="close" src="${close}">
+      <div class = 'close-icon'><img id="close" src="${close}"></div>
+      <div class = "reservation-wraper">
+      <div>
       <img src="${movie.image.medium}">
       <h3>${movie.name}</h3>
       <p>Language: ${movie.language}</p>
       <p>Status: ${movie.status}</p>
       <p>Premiered : ${movie.premiered}</p>
+      </div>
+
+      <div>
       <div>Schedule:
         <p>Days: ${movie.schedule.days}</p>
         <p>Time: ${movie.schedule.time}</p>
       </div>
+  
       <div id="reservationDiv"></div>
-      <div> Add a reservation
+      <div class = 'add-reservation-btn'> Add a reservation
         <input id="name" type="text" name="name" value="" placeholder="Your name">
         <input id="start" type="date" name="date" value="" placeholder="Start date">
         <input id="end" type="date" name="date" value="" placeholder="End date">
         <button id="reservationButton" type="button" name="button"></button>
       </div>
+      </div>
+      </div>
   </div>`;
+
   popup.innerHTML = reservation;
   content.appendChild(popup);
+  const Home = document.querySelector('#row');
   const closeButton = document.getElementById('close');
   closeButton.addEventListener('click', () => {
-    closeButton.parentElement.parentElement.remove();
+    document.body.removeChild(popup);
+    Home.classList.remove('blur');
   });
 
   const reservationButton = document.getElementById('reservationButton');
@@ -87,4 +103,8 @@ const renderReservation = async (id) => {
   userReservationList(id);
 };
 
+<<<<<<< HEAD
 export { userReservationList, renderReservation };
+=======
+export default renderReservation;
+>>>>>>> development
