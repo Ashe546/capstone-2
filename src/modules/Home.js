@@ -37,9 +37,12 @@ export async function getLikes(id) {
   return result;
 }
 
+
 const component = async (id) => {
   const movies = await getMovies(request);
   const count = movieCounter(movies);
+  const movie = document.querySelector('.movie')
+movie.innerHTML = `movie (${count - 5})`
   console.log(movies)
   const likes = await getLikes(id);
   const Home = document.querySelector('#row');
