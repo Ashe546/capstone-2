@@ -26,21 +26,34 @@ const createObject = (id) => {
   });
 };
 
-const userReservationList = (id) => {
-  let reservationInnerText = '';
+const counter = async (id) => {
+  const reservationInnerText = '';
   let counter = 0;
-  involvement.getCustomData(`/reservations?item_id=${id}`).then((res) => {
+  await involvement.getCustomData(`/reservations?item_id=${id}`).then((res) => {
     res.forEach((user) => {
       counter += 1;
+    });
+  });
+  return counter
+};
+
+const userReservationList = async (id) => {
+  const reservationDiv = document.querySelector('#reservationDiv');
+  const reverse = document.querySelector('div');
+  reverse.className = 'reverse';
+  const scroll = document.createElement('div');
+  scroll.className = 'scroll';
+  let reservationInnerText = '';
+  involvement.getCustomData(`/reservations?item_id=${id}`).then((res) => {
+    res.forEach((user) => {
       reservationInnerText += `<p>${user.date_start} - ${user.date_end} by ${user.username}</p>`;
     });
-    const scroll = document.createElement('div');
-    scroll.className = 'scroll';
-    scroll.innerHTML = reservationInnerText;
-    const reservationDiv = document.querySelector('#reservationDiv');
-    reservationDiv.innerHTML = `Reservation(${counter})`;
-    reservationDiv.appendChild(scroll);
   });
+  const setCounter = await counter(id);
+  reservationDiv.innerHTML = `Reservation(${setCounter})`;
+  reverse.innerHTML = reservationInnerText;
+  reservationDiv.appendChild(scroll);
+  scroll.appendChild(reverse);
 };
 
 const renderReservation = async (id) => {
@@ -51,29 +64,26 @@ const renderReservation = async (id) => {
     <div class="popupContent">
       <div class = 'close-icon'><img id="close" src="${close}"></div>
       <div class = "reservation-wraper">
-      <div>
-      <img src="${movie.image.medium}">
+      <div id="description">
+      <img id="snapshot" src="${movie.image.medium}">
       <h3>${movie.name}</h3>
-      <p>Language: ${movie.language}</p>
-      <p>Status: ${movie.status}</p>
-      <p>Premiered : ${movie.premiered}</p>
+      <p class="paragraph">Language: ${movie.language}</p>
+      <p class="paragraph">Status: ${movie.status}</p>
+      <p class="paragraph">Premiered : ${movie.premiered}</p>
       </div>
 
       <div>
-      <div>Schedule:
-        <p>Days: ${movie.schedule.days}</p>
-        <p>Time: ${movie.schedule.time}</p>
+      <div class="schedule">Schedule:
+        <p class="paragraph">Days: ${movie.schedule.days}</p>
+        <p class="paragraph">Time: ${movie.schedule.time}</p>
       </div>
 
       <div id="reservationDiv"></div>
       <div class = 'reservationForm'> Add a reservation
-        <label for="name">Name</label>
-        <input id="name" type="text" name="name" value="" placeholder="Your name">
-        <label for="start">Start date</label>
-        <input id="start" type="date" name="date" value="" placeholder="Start date">
-        <label for="end">End Date</label>
-        <input id="end" type="date" name="date" value="" placeholder="End date">
-        <button id="reservationButton" class="btn" type="button" name="button">Reserve</button>
+        <label for="name">Name: <input id="name" class="white" type="text" name="name" value="" placeholder="Your name"></label>
+        <label for="start">Start date: <input id="start" type="date" name="date" value="" placeholder="Start date"></label>
+        <label for="end">End date: <input id="end" type="date" name="date" value="" placeholder="End date"></label>
+        <button id="reservationButton" type="button" name="button">Reserve</button>
       </div>
       </div>
       </div>
@@ -99,8 +109,10 @@ const renderReservation = async (id) => {
     name.value = '';
     start.value = '';
     end.value = '';
+
+    userReservationList(id);
   });
   userReservationList(id);
 };
 
-export { userReservationList, renderReservation };
+export { userReservationList, renderReservation, counter };
